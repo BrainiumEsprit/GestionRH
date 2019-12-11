@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Liste matrices</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		<h1>matrices</h1>
+	</div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/addform}" method="post">
+			<input type="submit" value="Generate" class="btn btn-danger"/>
+		</form>
+	
+	</div>
+    
+    <div style="padding:0 20px">
+    <table class="table table-striped">
+		<tr>
+		    <th>competences</th>
+		    <th>Employee 1</th>
+		    <th>Employee 2</th>
+		    <th>Employee 3</th>
+		    <th>Employee 3</th>
+		    <th>Average</th>
+		</tr>  
+    	<tr th:each = "matrice : ${matrice}">
+    		<td th:text="${matrice.emp}"></td>
+    		<td th:text="${matrice.c1}"></td>
+    		<td th:text="${matrice.c2}"></td>
+    		<td th:text="${matrice.c3}"></td>
+    		<td th:text="${matrice.c4}"></td>
+    		<td th:text="(${matrice.c1}+${matrice.c2}+${matrice.c3}+${matrice.c4})/4"></td>
+    		
+    		
+    		
+    	</tr>
+    
+    </table>
+	</div>    
+</div>
+</body>
+</html>
