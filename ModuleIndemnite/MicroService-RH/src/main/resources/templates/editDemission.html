@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Demissions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>New Demissions</h1>
+	<div class="col-md-4">
+		<form th:object="${Demission}" th:action="@{../saveeeee}" action="#" method="post">
+		    <input type="hidden" th:field="*{id_dem}" class="form-control"/>
+			<input type="text" th:field="*{nom}" class="form-control"
+				placeholder="nom" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{prenom}" class="form-control"
+				placeholder="Prenom" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{motif}" class="form-control"
+				placeholder="Motif" />	
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<input type="date" th:field="*{date_depart}" class="form-control"
+				placeholder="Total Impot" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div>
+</body>
+</html>
