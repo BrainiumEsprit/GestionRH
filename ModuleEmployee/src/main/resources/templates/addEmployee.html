@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Employee</title>
+    		<input action="action" type="button" Value="Back" onclick="history.go(-1);"  />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Ajouter un Employee</h1>
+	<div class="col-md-4">
+		<form th:object="${Employee}" th:action="@{save}" action="#" method="post">
+		
+			<input type="text" th:field="*{fullname}" class="form-control"
+				placeholder="NomPrenom" required="required"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+	        <label for="tentacles">veuillez saisir le CIN</label>
+			<input type="number" th:field="*{cin}" class="form-control"
+				placeholder="cin" required="required" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{mat}" class="form-control"
+				placeholder="Matricule" required="required" />
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<input type="email" th:field="*{email}" class="form-control"
+				placeholder="Email" required="required"/>
+				<div style="clear: both; display: block; height: 10px;"></div>	
+				<label for="tentacles">Veuillez saisir le Salaire</label>
+			<input type="number" th:field="*{sal}" class="form-control"
+				placeholder="salaire" required="required" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<label for="tentacles">Veuillez saisir le num de téléphone</label>	
+			<input type="number" th:field="*{tel}" class="form-control"
+				placeholder="numero de telephone" required="required"  />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<label for="tentacles">Veuillez saisir la date D'embauche</label>	
+			<input type="date" th:field="*{dateemb}" class="form-control"
+				placeholder="dateemb" required="required"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Enregistrer"></input>
+		</form>
+	</div>
+</div>
+</body>
+</html>

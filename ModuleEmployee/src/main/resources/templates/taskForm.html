@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Employee</title>
+    <input action="action" type="button" Value="Back" onclick="history.go(-1);"  />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Ajouter un Congé</h1>
+	<div class="col-md-4">
+		<form th:object="${task}" th:action="@{../saveee}" action="#" method="post">
+		<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="tentacles">Veuillez saisir la date de debut du conjé</label>	
+			<input type="hidden" th:field="*{mat_emp}" class="form-control"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="date" th:field="*{date_d}" class="form-control"
+				placeholder="dateemb" required="required" name="date_d"/>
+			<div style="clear: both; display: block; height: 10px;"></div>			
+			<label for="tentacles">Veuillez saisir la date de fin du conjé</label>	
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<input type="date" th:field="*{date_f}" class="form-control"
+				placeholder="dateemb" required="required" name="date_f"/>
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<div style="clear: both; display: block; height: 10px;"></div>		
+			<input type="submit" class="btn btn-primary" value="Enregistrer"></input>			
+		</form>
+	</div>
+</div>
+
+</body>
+</html>
