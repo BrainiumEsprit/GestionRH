@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Notes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Not your employees</h1>
+	<div class="col-md-4">
+		<form th:object="${Matrice}" th:action="@{savemat}" action="#" method="post">
+			<select th:field="*{emp}" class="form-control">
+				<option th:each="comps : ${comps}" th:value="${comps.libelle}" th:text="${comps.libelle}"></option>
+			</select>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{c1}" class="form-control"
+				placeholder="Note Employee 1" />
+			<div style="clear: both; display:  block; height: 10px;"></div>
+			<input type="text" th:field="*{c2}" class="form-control"
+				placeholder="Note Employee 2" />
+			<div style="clear: both; display: block; height: 10px;"></div>	
+			<input type="text" th:field="*{c3}" class="form-control"
+				placeholder="Note Employee 3" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="text" th:field="*{c4}" class="form-control"
+				placeholder="Note Employee 4" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div>
+</body>
+</html>
