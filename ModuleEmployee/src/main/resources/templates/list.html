@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Gestion conjées</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+	     <form action="/listemp2" class="form-inline">
+	        <div class="form-group mb-2">
+	         <input type="text" class="form-control" name="name" placeholder="Search User" />
+	         <input type="submit" value="Search"  class="btn btn-primary"/>
+	        </div>
+	     </form>
+		<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<tr>
+		    <th>Name</th>
+		   <th>Matricule</th>
+		    <th>Email</th>
+		    <th>Cin</th>
+		    <th>Date d'embauche</th>
+		    <th>Téléphone</th>
+		    <th>Salaire</th>
+		    <th>Actions</th>
+		</tr>  
+    	<tr th:each = "employee : ${list}">
+    		<td th:text="${employee.fullname}"></td>
+    		<td th:text="${employee.mat}"></td>
+    		<td th:text="${employee.email}"></td>
+    		<td th:text="${employee.cin}"></td>
+    		<td th:text="${employee.dateemb}"></td>
+    		<td th:text="${employee.tel}"></td>
+    		<td th:text="${employee.sal}"></td>
+    		
+    		<td>
+    		
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/addTask/{id}(id=${employee.id})}" class="btn btn-danger btn-xs">Ajouter Congé</a>
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/listconj/{id}(id=${employee.id})}" class="btn btn-primary btn-xs">Consulter Congé</a>
+    		</td>
+    	</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

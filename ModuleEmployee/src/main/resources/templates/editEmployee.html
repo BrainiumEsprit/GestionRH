@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Employee</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+	<h1>Modifier Employee</h1>
+	<div class="col-md-4">
+		<form th:object="${Employee}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" th:field="*{id}" class="form-control" />
+			<label for="tentacles">Veuillez saisir le Nouveau Nom</label>
+			<input type="text" th:field="*{fullname}" class="form-control"
+				placeholder="fullname" required="required" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="tentacles">Veuillez saisir le nouveau CIN</label>
+			<input type="number" th:field="*{cin}" class="form-control"
+				placeholder="cin" required="required"/>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="tentacles">Veuillez saisir le nouveau Matricule</label>
+			<input type="text" th:field="*{mat}" class="form-control"
+				placeholder="mat" required="required" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="tentacles">Veuillez saisir le nouveau EMAIL</label>	
+			<input type="email" th:field="*{email}" class="form-control"
+				placeholder="Email" required="required"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<label for="tentacles">Veuillez saisir le nouveau Email</label>	
+			<input type="number" th:field="*{sal}" class="form-control"
+				placeholder="salaire" required="required"/>
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<label for="tentacles">Veuillez saisir le nouveau Numero</label>	
+			<input type="number" th:field="*{tel}" class="form-control"
+				placeholder="numero de telephone" required="required" />
+				<div style="clear: both; display: block; height: 10px;"></div>	
+				<label for="tentacles">Veuillez saisir la nouvelle date</label>
+			<input type="date" th:field="*{dateemb}" class="form-control"
+				placeholder="dateemb" required="required" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>		</form>
+	</div>
+</div>
+</body>
+</html>

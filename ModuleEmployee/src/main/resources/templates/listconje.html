@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Gestion conjées</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div layout:fragment="content" class="container mySpace">
+	     <form action="/listemp2" class="form-inline">
+	     
+		<input action="action" type="button" Value="Back" onclick="history.go(-1);"  />
+	        <div class="form-group mb-2">
+	        </div>
+	     </form>
+		<div class="card">
+			<div class="card card-body">
+				<table class="table table-hover">
+					<tr>
+		    <th>Date de  Sortie</th>
+		   <th>Date de retour</th>
+		   <th>Action</th>
+		   
+		</tr>  
+    	<tr th:each = "listconjee : ${listconje}">
+    		<td th:text="${listconjee.date_d}"></td>
+    		<td th:text="${listconjee.date_f}"></td>
+    	<td>	
+    	 
+    	 </td>
+    	</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
