@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Applications</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+ 
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		    <div align="center" style="padding:0 20px">
+		<h1>Applications</h1>
+	</div></div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger"/>
+		</form>
+	</div>
+    
+    <div align="center" style="padding:0 20px">
+    <table class="table table-striped" border="1" cellpadding="10">
+		<tr>
+		    <th>Id</th>
+		    <th>Name</th>
+		    <th>Lastname</th>
+		    <th>Email</th>
+		    <th>Degree</th>
+		    <th>Job</th>
+		    <th>CV</th>
+		    <th>Motivation Letter</th>
+		    
+		    
+		    
+		    <th>Action</th>
+		    
+		</tr>  
+    	<tr th:each = "Applicants : ${Applicants}">
+    		<td th:text="${Applicants.id}"></td>
+    		<td th:text="${Applicants.name}"></td>
+    		<td th:text="${Applicants.lastname}"></td>
+    		<td th:text="${Applicants.email}"></td>
+    		<td th:text="${Applicants.degree}"></td>
+    		<td th:text="${Applicants.job}"></td>
+    		<td th:text="${Applicants.cv}"></td>
+    		<td th:text="${Applicants.motivation}"></td>
+    		<td>
+    			<a sec:authorize="hasAuthority('USER')"th:href="@{/editApplication/{id}(id=${Applicants.id})}" class="btn btn-primary btn-xs">Edit</a>
+    			<a sec:authorize="hasAuthority('USER')" th:href="@{/deleteApplication/{id}(id=${Applicants.id})}" class="btn btn-danger btn-xs">Delete</a>
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/sendmail/{id}(id=${Applicants.id})}" class="btn btn-danger btn-xs">Send mail</a>
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/addMeeting/{id}(id=${Applicants.id})}" class="btn btn-danger btn-xs">Arrange Meeting</a>
+    	
+    		</td>
+   
+    		 	</tr>
+    </table>
+    <a href="/addApplication" class="btn btn-primary">Add application</a>
+    <a sec:authorize="hasAuthority('ADMIN')" href="/allRecruitment" class="btn btn-primary">Job posts</a>
+    <a sec:authorize="hasAuthority('ADMIN')" href="/indexMeeting" class="btn btn-primary">Meetings</a>
+	</div>    
+</div>
+</body>
+</html>

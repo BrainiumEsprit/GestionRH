@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add job post</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div class="container">
+	
+	<div class="col-md-4">
+	  <div align="center" style="padding:0 20px">
+	  <h1>New job post</h1>
+		<form th:object="${Applicants}" th:action="@{saveApp}" action="#" method="post">
+			<input type="text" th:field="*{name}" class="form-control"
+				placeholder="Name" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{lastname}" class="form-control"
+				placeholder="Lastname" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{email}" class="form-control"
+				placeholder="Email" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{degree}" class="form-control"
+				placeholder="Degree" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{job}" class="form-control"
+				placeholder="Job" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{cv}" class="form-control"
+				placeholder="CV" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="text" th:field="*{motivation}" class="form-control"
+				placeholder="Motivation " />
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div></div>
+</body>
+</html>

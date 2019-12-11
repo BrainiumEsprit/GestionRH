@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Arrange Meeting</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div class="container">
+	
+	<div class="col-md-4">
+	  <div align="center" style="padding:0 20px">
+	  <h1>Arrange Meeting</h1>
+		<form th:object="${Meeting}" th:action="@{../saveMeeting}" action="#" method="post">
+		<input type="hidden" th:field="*{ref}" class="form-control" />
+			<input type="hidden" th:field="*{app}" class="form-control" />
+			 <div style="clear: both; display: block; height: 10px;"></div>
+			<input type="hidden" th:field="*{employee}" class="form-control"/>
+			 <div style="clear: both; display: block; height: 10px;"></div>
+			<input type="datetime-local" th:field="*{date}"
+      		 name="meeting-time" value="2018-06-12T19:30"
+      		 min="2019-12-10T00:00" max="2030-12-31T00:00">
+      		 <div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div></div>
+</body>
+</html>

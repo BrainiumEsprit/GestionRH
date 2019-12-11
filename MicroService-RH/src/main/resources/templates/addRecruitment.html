@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add job post</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    
+ 
+</head>
+<body>
+<div class="container">
+	
+	<div class="col-md-4">
+	  <div align="center" style="padding:0 20px">
+	  <h1>New job post</h1>
+		<form th:object="${Recruitment}" th:action="@{save}" action="#" method="post">
+		<select th:field="*{post}"  class="form-control" >
+    <option th:value="'Technicien en Informatique'" th:text="Technicien_en_informatique"></option>
+    <option th:value="'Chef de projet'" th:text="Chef_de_projet"></option>
+    <option th:value="'Responsable Marketing'" th:text="Responsable_Marketing"></option>
+</select>
+	   <table>
+	   <tr>
+	   <td th:each = "myBooleanVariable : ${myBooleanVariable}">
+	   <label th:text=="${myBooleanVariable}">
+	   
+	   </label>
+	   <input 
+      type="checkbox" 
+      name="myBooleanVariable" 
+      th:checked="${myBooleanVariable}" th:value="${myBooleanVariable}" th:field="*{requiredskills} "/>
+	   </td></tr></table>
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{description}" class="form-control"
+				placeholder="Description" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" th:field="*{salary}" class="form-control"
+				placeholder="Salary" />
+				<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" class="btn btn-primary" value="Save"></input>
+		</form>
+	</div>
+</div></div>
+</body>
+</html>

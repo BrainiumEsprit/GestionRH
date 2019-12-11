@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" 
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <title>Meetings</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+ 
+</head>
+<body>
+<div class="container">
+	<div class="col-md-4">
+		    <div align="center" style="padding:0 20px">
+		<h1>Meetings</h1>
+	</div></div>
+	<div class="col-md-4">
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
+	
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger"/>
+		</form>
+	</div>
+    
+    <div align="center" style="padding:0 20px">
+    <table class="table table-striped" border="1" cellpadding="10">
+		<tr>
+		    <th>Reference</th>
+		    <th>Applicant</th>
+		    <th>Date</th>
+		    
+
+		    <th>Action</th>
+		    
+		</tr>  
+    	<tr th:each = "Meeting : ${Meeting}">
+    		<td th:text="${Meeting.ref}"></td>
+    		<td th:text="${Meeting.app}"></td>
+    		<td th:text="${Meeting.date}"></td>
+    		
+    		<td>
+    			<a sec:authorize="hasAuthority('ADMIN')"th:href="@{/editMeeting/{id}(id=${Meeting.ref})}" class="btn btn-primary btn-xs">Edit</a>
+    			<a sec:authorize="hasAuthority('ADMIN')" th:href="@{/deleteMeeting/{id}(id=${Meeting.ref})}" class="btn btn-danger btn-xs">Delete</a>
+    		
+    	
+    		</td>
+   
+    		 	</tr>
+    </table>
+   
+    <a sec:authorize="hasAuthority('ADMIN')" href="/indexApp" class="btn btn-primary">Applications</a>
+    <a sec:authorize="hasAuthority('ADMIN')" href="/allRecruitment" class="btn btn-primary">Job posts</a>
+    
+	</div>    
+</div>
+</body>
+</html>
